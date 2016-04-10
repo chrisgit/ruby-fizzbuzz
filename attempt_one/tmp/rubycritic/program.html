@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RubyCritic</title>
+    <link href="assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header class="project-header group">
+      <div class="container">
+        <h1 class="logo"><a href="overview.html" class="logo-link">RubyCritic</a></h1>
+        <nav class="project-nav">
+          <a href="overview.html" class="project-nav-item">Overview</a>
+          <a href="code_index.html" class="project-nav-item">Code</a>
+          <a href="smells_index.html" class="project-nav-item">Smells</a>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="file-header group rated">
+  <span class="rating rating-a circled-text circle">
+    A
+  </span>
+  <h2 class="file-name">Program</h2>
+
+  <span class="file-committed-at">
+    
+      Never committed
+    
+  </span>
+
+  <div class="file-stats group">
+    <div class="file-stat">
+      11 complexity
+    </div>
+    <div class="file-stat">
+      N/A complexity per method
+    </div>
+    <div class="file-stat">
+      N/A churn
+    </div>
+    <div class="file-stat">
+      0 methods
+    </div>
+    <div class="file-stat">
+      0 duplication
+    </div>
+  </div>
+
+  
+    <button id="js-toggle-smells" class="smells-toggle-button button">Toggle Smells</button>
+  
+</div>
+
+<code class="prettyprint linenums lang-ruby file-code js-file-code"># The critical component
+def evaluate_fizz_buzz(number)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank">UtilityFunction</a>)      evaluate_fizz_buzz doesn't depend on instance state (maybe move it to another class?)          </span>  </li></ul>
+	if (number % 3 == 0 &amp;&amp; number % 5 == 0)<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      evaluate_fizz_buzz calls number % 3 2 times                        <a href="program.html#L3" class="js-smell-location">0</a>                  <a href="program.html#L7" class="js-smell-location">1</a>                  </span>  </li>  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      evaluate_fizz_buzz calls number % 5 2 times                        <a href="program.html#L3" class="js-smell-location">0</a>                  <a href="program.html#L10" class="js-smell-location">1</a>                  </span>  </li></ul>
+		return &#39;FizzBuzz&#39;
+	end
+
+	if (number % 3) == 0 <ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      evaluate_fizz_buzz calls number % 3 2 times                        <a href="program.html#L3" class="js-smell-location">0</a>                  <a href="program.html#L7" class="js-smell-location">1</a>                  </span>  </li></ul>
+		return &#39;Fizz&#39;
+	end
+	if (number % 5) == 0<ul class="nocode smells js-smells">  <li class="smell ">    <span class="description">      (<a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank">DuplicateMethodCall</a>)      evaluate_fizz_buzz calls number % 5 2 times                        <a href="program.html#L3" class="js-smell-location">0</a>                  <a href="program.html#L10" class="js-smell-location">1</a>                  </span>  </li></ul>
+		return &#39;Buzz&#39;
+	end
+	
+	number
+end	
+
+
+=begin
+# The full program in all it&#39;s glory
+class FizzBuzz
+	def initialize(range)
+		# throw if not range
+		@range = range
+	end
+
+	def do_fizz_buzz
+		@range.each do |number|
+			puts evaluate_fizz_buzz(number)
+		end
+	end
+
+	private
+	def evaluate_fizz_buzz(number)
+		if (number % 3 == 0 &amp;&amp; number % 5 == 0)
+			return &#39;FizzBuzz&#39;
+		end
+
+		if (number % 3) == 0 
+			return &#39;Fizz&#39;
+		end
+		if (number % 5) == 0
+			return &#39;Buzz&#39;
+		end
+		
+		number
+	end	
+end
+
+fizz_buzz = FizzBuzz.new 0..100
+fizz_buzz.do_fizz_buzz
+=end
+</code>
+
+    </div>
+    <script src='assets/javascripts/jquery-2.1.0.js'></script>
+    <script src='assets/javascripts/jquery.tablesorter.js'></script>
+    <script src='assets/javascripts/jquery.floatThead-v1.2.7.js'></script>
+    <script src='assets/javascripts/jquery.timeago-v1.4.1.js'></script>
+    <script src='assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='assets/javascripts/jquery.scrollTo-1.4.11.js'></script>
+    <script src='assets/javascripts/prettify-4-Mar-2013.js'></script>
+    <script src='assets/javascripts/application.js'></script>
+  </body>
+</html>
