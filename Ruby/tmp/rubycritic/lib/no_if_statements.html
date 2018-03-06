@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Never committed
+          Updated <time class='js-timeago' datetime='2018-03-06 21:19:53 +0000'>2018-03-06 21:19:53 +0000</time>
         
       </span>
     </div>
@@ -70,7 +70,7 @@
             </div>
             <div class="col-md-3">
               <div><span class="metric">8.8</span><small> complexity/method</small></div>
-              <div><span class="metric">0</span><small> loc/method</small></div>
+              <div><span class="metric">1</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">8.77</span><small> complexity</small></div>
@@ -85,8 +85,8 @@
             <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
             <li class="active">
               <a href="#" id="toggle-smells" class="toggle-button button">
-                4
-                smells
+                1
+                smell
               </a>
             </li>
           </ul>
@@ -98,9 +98,9 @@
 # Fizz Buzz without if statements
 class NoIfStatements
   def evaluate(number)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>NoIfStatements#evaluate doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
-    h = {15 =&gt; &#39;FizzBuzz&#39;, 5 =&gt; &#39;Buzz&#39;, 3 =&gt; &#39;Fizz&#39;}<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>NoIfStatements#evaluate has the variable name 'h'</span>          </div>  </li></ol>
-    n = h.keys.select{|k| (number % k).zero? }.first<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>NoIfStatements#evaluate has the variable name 'k'</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>NoIfStatements#evaluate has the variable name 'n'</span>          </div>  </li></ol>
-    h[n] || number
+    hash = {15 =&gt; &#39;FizzBuzz&#39;, 5 =&gt; &#39;Buzz&#39;, 3 =&gt; &#39;Fizz&#39;}
+    match = hash.keys.select{|key| (number % key).zero? }.first
+    hash[match] || number
   end
 end
 </code>
